@@ -11,21 +11,4 @@ part of 'home_store.dart';
 mixin _$HomeStore on HomeStoreBase, Store {
   final _$counterAtom = Atom(name: 'HomeStoreBase.counter');
 
-  @override
-  int get counter {
-    _$counterAtom.reportRead();
-    return super.counter;
-  }
-
-  @override
-  set counter(int value) {
-    _$counterAtom.reportWrite(value, super.counter, () {
-      super.counter = value;
-    });
-  }
-
-  @override
-  String toString() {
-    return '- counter: ${counter}';
-  }
 }

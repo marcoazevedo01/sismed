@@ -23,14 +23,20 @@ class HttpService {
     return jsonDecode(response.body);
   }
 
-  static Future get_service(String email, String password, path) async {
+  static Future post_Obj(Object obj, path) async {
     var url = '192.168.0.103:3000';
 
-    Map data = {'email': email, 'password': password};
+    var headers = {"Content-Type": "application/json"};
 
-    var _body = jsonEncode(data);
+    var response = await http.post(Uri.http(url, path), headers: headers, body: obj);
 
-    var headers = {"Content-Type": "application/json", 'form-data': _body};
+    return jsonDecode(response.body);
+  }
+
+  static Future get_service(path) async {
+    var url = '192.168.0.103:3000';
+
+    var headers = {"Content-Type": "application/json", 'Authorization': 'Bearer $getToken()'};
 
     var response = await http.get(Uri.http(url, path), headers: headers);
 

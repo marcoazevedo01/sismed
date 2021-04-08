@@ -28,3 +28,10 @@ class _LoadPageState extends State<LoadPage> {
     ChildRoute(Modular.initialRoute, child: (_, args) => LoadPage()),
   ];
 }
+
+class LoadModule extends Module {
+  @override
+  final List<ModularRoute> routes = [
+    ChildRoute(Modular.initialRoute, child: (_, args) => LoadPage()),
+  ];
+}
