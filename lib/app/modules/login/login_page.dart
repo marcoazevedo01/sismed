@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:sismed/app/components/text_field.dart';
 import 'package:sismed/app/components/modal.dart';
 import 'package:sismed/app/modules/login/login_store.dart';
-
-
 
 class LoginPage extends StatelessWidget {
   @override
@@ -23,13 +20,13 @@ class LoginPage extends StatelessWidget {
             Container(
               height: size.height / 4,
               alignment: Alignment.center,
-              child: Text("SisMed",
+              child: Text(
+                "SisMed",
                 style: new TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 60.0,
                     color: Colors.white,
-                    fontFamily: "Astigmatic"
-                ),
+                    fontFamily: "Astigmatic"),
               ),
             ),
             Flexible(
@@ -59,50 +56,52 @@ class LoginPage extends StatelessWidget {
                       icon: Icons.email,
                       colorFocus: Colors.black,
                       controller: emailValue,
-
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                  TextFieldComponent(
-                        labelText: "Senha",
-                        hintText: "Digite sua Senha",
-                        obscureText: true,
-                        icon: Icons.vpn_key,
-                        colorFocus:  Colors.black,
-                        controller: senhaValue,
-                      ),
+                    TextFieldComponent(
+                      labelText: "Senha",
+                      hintText: "Digite sua Senha",
+                      obscureText: true,
+                      icon: Icons.vpn_key,
+                      colorFocus: Colors.black,
+                      controller: senhaValue,
+                    ),
                     const SizedBox(
                       height: 30,
                     ),
                     ElevatedButton(
-                      child: Text("Entrar",
+                        child: Text(
+                          "Entrar",
                           style: new TextStyle(
-                          fontSize: 17.0,
-                          color: Colors.white,
-                       ),
-                      ),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.greenAccent),
-                      ),
+                            fontSize: 17.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.greenAccent),
+                        ),
                         onPressed: () {
-                          controll.login(email: emailValue.text,senha: senhaValue.text, context: context);
-                        }
-                    ),
+                          controll.login(
+                              email: emailValue.text,
+                              senha: senhaValue.text,
+                              context: context);
+                        }),
                     const SizedBox(
                       height: 30,
                     ),
                     GestureDetector(
-                      onTap: () => {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                           return ModalRegistro();
-                          },
-                        )
-                      },
-                      child: Text('Regitrar',textAlign: TextAlign.center)
-                    )
+                        onTap: () => {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return ModalRegistro();
+                                },
+                              )
+                            },
+                        child: Text('Regitrar', textAlign: TextAlign.center))
                   ],
                 ),
               ),

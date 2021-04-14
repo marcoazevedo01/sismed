@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
 class TextFieldComponent extends StatelessWidget {
-  TextFieldComponent({
-    Key key,
-    this.labelText,
-    this.hintText,
-    this.obscureText,
-    this.color,
-    this.colorFocus,
-    this.icon,
-    this.validate,
-    this.controller
-  });
+  TextFieldComponent(
+      {Key key,
+      this.labelText,
+      this.hintText,
+      this.obscureText,
+      this.color,
+      this.colorFocus,
+      this.icon,
+      this.validate,
+      this.controller});
   final String labelText;
   final String hintText;
   final bool obscureText;

@@ -8,7 +8,6 @@ class HttpService {
     return prefs.getString('token');
   }
 
-
   static Future post_service(String email, String password, path) async {
     var url = '192.168.0.103:3000';
 

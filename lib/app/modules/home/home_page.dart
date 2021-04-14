@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sismed/app/modules/home/client/medic.dart';
 import 'package:sismed/app/modules/home/clinics/conclued.dart';
 import 'package:sismed/app/modules/home/clinics/pending.dart';
 import 'package:sismed/app/modules/menu/menu.dart';
@@ -12,39 +13,41 @@ class HomePage extends StatelessWidget {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('SisMed',
+          title: Text(
+            'SisMed',
             style: new TextStyle(
-
-              fontSize: 35.0,
-              color: Colors.black54,
-                fontFamily: "Astigmatic"
-            ),
+                fontSize: 35.0,
+                color: Colors.black54,
+                fontFamily: "Astigmatic"),
           ),
           leading: Builder(
-            builder: (BuildContext context){
+            builder: (BuildContext context) {
               return IconButton(
                   icon: Icon(Icons.arrow_back),
-                  onPressed: () => Modular.to.pushNamed("/login")
-              );
+                  onPressed: () => Modular.to.pushNamed("/login"));
             },
           ),
           centerTitle: true,
           bottom: TabBar(
             tabs: [
               Tab(
-                icon: FaIcon(FontAwesomeIcons.bookMedical),
-                text: 'Consultas',
+                icon: FaIcon(FontAwesomeIcons.handHoldingMedical),
+                text: 'Medicos',
+              ),
+              Tab(
+                icon: FaIcon(FontAwesomeIcons.clinicMedical),
+                text: 'Clinicas',
               ),
               Tab(
                 icon: FaIcon(FontAwesomeIcons.calendarCheck),
-                text: 'Concluidas',
+                text: 'Consultas',
               ),
               Tab(
-                icon: FaIcon(FontAwesomeIcons.handHoldingMedical),
-                text: 'Clinica',
+                icon: FaIcon(FontAwesomeIcons.bookMedical),
+                text: 'Tratamento',
               ),
             ],
           ),
@@ -66,17 +69,14 @@ class HomePage extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.access_alarms_rounded),
                 title: Text('Horarios'),
-
               ),
               ListTile(
                 leading: Icon(Icons.payments_outlined),
                 title: Text('Pagamentos'),
-
               ),
               ListTile(
                 leading: Icon(Icons.addchart_sharp),
                 title: Text('Comissao'),
-
               ),
               Divider(
                 height: 1,
@@ -91,29 +91,34 @@ class HomePage extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.info),
                 title: Text('Ajuda'),
-
               ),
               const SizedBox(
                 height: 360,
               ),
-              Text('By M&V softwares',
+              Text(
+                'By M&V softwares',
                 textAlign: TextAlign.center,
                 style: new TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 15.0,
-                    color: Colors.black54,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 15.0,
+                  color: Colors.black54,
                 ),
               ),
             ],
           ),
         ),
+
         body: TabBarView(
           children: [
-            Pending(),
+            Medic(),
             Conclued(),
             Menu(),
+            Menu(),
           ],
+
+
         ),
+
         floatingActionButton: FloatingActionButton(
           backgroundColor: const Color(0xff03dac6),
           foregroundColor: Colors.black,
@@ -122,13 +127,14 @@ class HomePage extends StatelessWidget {
             showDialog(
               context: context,
               builder: (BuildContext context) {
-               return ModalConsulta();
+                return ModalConsulta();
               },
             );
             // Respond to button press
           },
           child: Icon(Icons.add),
         ),
+
       ),
     );
   }

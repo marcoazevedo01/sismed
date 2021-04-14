@@ -11,11 +11,19 @@ class ModalRegistro extends StatelessWidget {
     final TextEditingController senhaValue = TextEditingController();
     final controll = LoginStore();
     return AlertDialog(
-      title: new Text("Novo Registro"),
+      title: new Text("Cadastro"),
       content: Container(
-        height: 180,
+        height: 280,
         child: Column(
           children: [
+            new TextFieldComponent(
+              labelText: "Nome",
+              colorFocus: Color(0xFFea5154),
+              controller: emailValue,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             new TextFieldComponent(
               labelText: "E-mail",
               colorFocus: Color(0xFFea5154),
@@ -27,7 +35,7 @@ class ModalRegistro extends StatelessWidget {
             new TextFieldComponent(
               labelText: "Senha",
               obscureText: true,
-              colorFocus:  Color(0xFFea5154),
+              colorFocus: Color(0xFFea5154),
               controller: senhaValue,
             ),
             const SizedBox(
@@ -35,9 +43,7 @@ class ModalRegistro extends StatelessWidget {
             ),
             new TextFieldComponent(
               labelText: "Telefone",
-
-              colorFocus:  Color(0xFFea5154),
-
+              colorFocus: Color(0xFFea5154),
             )
           ],
         ),
@@ -55,7 +61,10 @@ class ModalRegistro extends StatelessWidget {
           child: new Text("Salvar"),
           textColor: Colors.green,
           onPressed: () {
-            controll.cadastrar(email: emailValue.text,senha: senhaValue.text, context: context);
+            controll.cadastrar(
+                email: emailValue.text,
+                senha: senhaValue.text,
+                context: context);
           },
         ),
       ],
@@ -97,9 +106,10 @@ class ModalConsulta extends StatelessWidget {
               ),
               mode: DateTimeFieldPickerMode.time,
               autovalidateMode: AutovalidateMode.always,
-              validator: (e) => (e?.day ?? 0) == 1 ? 'Please not the first day' : null,
+              validator: (e) =>
+                  (e?.day ?? 0) == 1 ? 'Please not the first day' : null,
               onDateSelected: (DateTime value) {
-                  dateValue = value;
+                dateValue = value;
               },
             ),
             const SizedBox(
@@ -107,7 +117,7 @@ class ModalConsulta extends StatelessWidget {
             ),
             new TextFieldComponent(
               labelText: "Tipo",
-              colorFocus:  Color(0xFFea5154),
+              colorFocus: Color(0xFFea5154),
               controller: typeValue,
             ),
             const SizedBox(
@@ -115,7 +125,7 @@ class ModalConsulta extends StatelessWidget {
             ),
             new TextFieldComponent(
               labelText: "Clinica",
-              colorFocus:  Color(0xFFea5154),
+              colorFocus: Color(0xFFea5154),
               controller: clinicValue,
             )
           ],
@@ -134,7 +144,12 @@ class ModalConsulta extends StatelessWidget {
           child: new Text("Salvar"),
           textColor: Colors.green,
           onPressed: () {
-            controll.cadastrar(name: nameValue.text, date: dateValue, type: typeValue.text, clinic: clinicValue.text, context: context);
+            controll.cadastrar(
+                name: nameValue.text,
+                date: dateValue,
+                type: typeValue.text,
+                clinic: clinicValue.text,
+                context: context);
             Navigator.of(context).pop();
           },
         ),
