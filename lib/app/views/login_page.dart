@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sismed/app/components/text_field.dart';
-import 'package:sismed/app/components/modal.dart';
-import 'package:sismed/app/modules/login/login_store.dart';
+import 'package:sismed/app/views/components/modal.dart';
+import 'package:sismed/app/views/components/text_field.dart';
+import 'package:sismed/app/controller/login.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -84,10 +84,11 @@ class LoginPage extends StatelessWidget {
                               MaterialStateProperty.all(Colors.greenAccent),
                         ),
                         onPressed: () {
-                          controll.login(
-                              email: emailValue.text,
-                              senha: senhaValue.text,
-                              context: context);
+                          controll.logar(
+                            email: emailValue.text,
+                            senha: senhaValue.text,
+                            context: context,
+                          );
                         }),
                     const SizedBox(
                       height: 30,

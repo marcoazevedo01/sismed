@@ -1,14 +1,14 @@
 import 'package:mobx/mobx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:sismed/app/modules/http_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sismed/config/http_service.dart';
 
 mixin _$LoginStore on LoginStoreBase, Store {}
 class LoginStore = LoginStoreBase with _$LoginStore;
 
 abstract class LoginStoreBase with Store {
-  login({email, senha, context}) async {
+  logar({email, senha, context}) async {
     if (email != '' && senha != '') {
       var response = await HttpService.post_service(email, senha, '/login');
       if (response['token'] != null) {

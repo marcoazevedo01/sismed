@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sismed/app/components/text_field.dart';
-import 'package:sismed/app/components/text_global.dart';
-import 'package:sismed/app/modules/home/clinics/details_store.dart';
-import 'package:sismed/app/modules/http_service.dart';
+import 'package:sismed/app/controller/details.dart';
+import 'package:sismed/app/views/components/text_field.dart';
+import 'package:sismed/app/views/components/text_global.dart';
+import 'package:sismed/config/http_service.dart';
 
 class Medic extends StatelessWidget {
   @override
@@ -33,10 +33,10 @@ class Medic extends StatelessWidget {
                     margin: EdgeInsets.only(bottom: 14),
                     child: TextField(
                       decoration: InputDecoration(
-                        suffixIcon: Icon(Icons.search,color: Colors.black),
-                        border: InputBorder.none,           
+                        suffixIcon: Icon(Icons.search, color: Colors.black),
+                        border: InputBorder.none,
                       ),
-                      cursorColor:  Colors.black,
+                      cursorColor: Colors.black,
                     ),
                   ),
                   FutureBuilder(
@@ -50,8 +50,11 @@ class Medic extends StatelessWidget {
                         );
                       }
                       if (!snapshot.hasData) {
-                        return Center(
-                          child: CircularProgressIndicator(),
+                        return Container(
+                          height: MediaQuery.of(context).size.height/1.8,
+                          child: Center(                           
+                            child: CircularProgressIndicator(),
+                          ),
                         );
                       } else {
                         List chambersData = snapshot.data;
@@ -80,11 +83,10 @@ class Medic extends StatelessWidget {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 TextGlobal(
-                                                    text: chambersData[index]
-                                                        ['name'],
-                                                    size: 15,
-                                                    fontWeight:
-                                                        FontWeight.bold),
+                                                  text: chambersData[index]['name'],
+                                                  size: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
                                               ],
                                             ),
                                             const SizedBox(
@@ -93,13 +95,13 @@ class Medic extends StatelessWidget {
                                             Row(
                                               children: [
                                                 TextGlobal(
-                                                    text: 'Data ' +
-                                                        chambersData[index]
-                                                            ['date'],
-                                                    size: 13),
+                                                  text: 'Data ' +
+                                                  chambersData[index]['date'],
+                                                  size: 13,
+                                                ),
                                                 Expanded(child: Container()),
                                                 FaIcon(
-                                                  FontAwesomeIcons.clock,
+                                                  FontAwesomeIcons.star,
                                                   color: Color(0xFF616060),
                                                   size: 18,
                                                 ),
@@ -109,17 +111,27 @@ class Medic extends StatelessWidget {
                                               height: 5,
                                             ),
                                             TextGlobal(
-                                                text: "Tipo: " +
-                                                    chambersData[index]['type'],
-                                                size: 13),
+                                              text: "Tipo: " +
+                                              chambersData[index]['type'],
+                                              size: 13,
+                                            ),
                                             const SizedBox(
                                               height: 5,
                                             ),
-                                            TextGlobal(
-                                                text: "Clinica: " +
-                                                    chambersData[index]
-                                                        ['clinica'],
-                                                size: 13),
+                                            Row(
+                                              children: [
+                                                TextGlobal(
+                                                  text: "Clinica: " +
+                                                  chambersData[index]['clinica'],
+                                                  size: 13,
+                                                ),
+                                                Expanded(child: Container()),
+                                                TextGlobal(
+                                                  text: chambersData[index]['type'],
+                                                  size: 13,
+                                                )
+                                              ],
+                                            ),
                                           ],
                                         ),
                                       ),

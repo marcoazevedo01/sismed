@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sismed/app/modules/home/client/medic.dart';
-import 'package:sismed/app/modules/home/clinics/conclued.dart';
-import 'package:sismed/app/modules/home/clinics/pending.dart';
-import 'package:sismed/app/modules/menu/menu.dart';
-import 'package:sismed/app/components/modal.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:sismed/app/views/Admin/pending.dart';
+import 'package:sismed/app/views/Client/clinic.dart';
+import 'package:sismed/app/views/Client/medic.dart';
+import 'package:sismed/app/views/components/modal.dart';
+
+import 'Admin/conclued.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -107,18 +108,14 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
-
         body: TabBarView(
           children: [
             Medic(),
+            Clinic(),
             Conclued(),
-            Menu(),
-            Menu(),
+            Conclued(),
           ],
-
-
         ),
-
         floatingActionButton: FloatingActionButton(
           backgroundColor: const Color(0xff03dac6),
           foregroundColor: Colors.black,
@@ -134,7 +131,6 @@ class HomePage extends StatelessWidget {
           },
           child: Icon(Icons.add),
         ),
-
       ),
     );
   }

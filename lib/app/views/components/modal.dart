@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sismed/app/components/text_field.dart';
-import 'package:sismed/app/components/modal_store.dart';
-import 'package:sismed/app/modules/login/login_store.dart';
 import 'package:date_field/date_field.dart';
+import 'package:sismed/app/controller/login.dart';
+import 'package:sismed/app/views/components/modal_store.dart';
+import 'package:sismed/app/views/components/text_field.dart';
 
 class ModalRegistro extends StatelessWidget {
   @override

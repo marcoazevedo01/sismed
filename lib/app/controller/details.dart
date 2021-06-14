@@ -1,8 +1,8 @@
 import 'package:mobx/mobx.dart';
-import 'package:sismed/app/modules/http_service.dart';
 import 'package:flutter/material.dart';
+import 'package:sismed/config/http_service.dart';
 
-part 'details_store.g.dart';
+part 'details.g.dart';
 
 class DetailsStore = DetailsStoreBase with _$DetailsStore;
 

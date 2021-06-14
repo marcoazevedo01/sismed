@@ -1,6 +1,7 @@
 import 'package:mobx/mobx.dart';
-import 'package:sismed/app/modules/http_service.dart';
 import 'dart:convert';
+
+import 'package:sismed/config/http_service.dart';
 
 mixin _$ModalStore on ModalStoreBase, Store {}
 class ModalStore = ModalStoreBase with _$ModalStore;

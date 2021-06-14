@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sismed/app/components/text_field.dart';
-import 'package:sismed/app/components/text_global.dart';
-import 'package:sismed/app/modules/home/clinics/details_store.dart';
-import 'package:sismed/app/modules/http_service.dart';
+import 'package:sismed/app/controller/details.dart';
+import 'package:sismed/app/views/components/text_field.dart';
+import 'package:sismed/app/views/components/text_global.dart';
+import 'package:sismed/config/http_service.dart';
 
 class Pending extends StatelessWidget {
   @override
